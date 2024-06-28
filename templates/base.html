@@ -8,12 +8,16 @@
 		<h1>FotoBlog</h1>
 		{%  if user.is_authenticated %}
 			<p>Hey {{ user }}!</p>
+			{% if user.profile_photo %}
+			<img class="avatar" src={{ user.profile_photo.url }}>
+		{% else %}
 			<img class="avatar" src="{% static 'images/default_profile.png'%}">
-			<p><a href="{% url 'home' %}">Home</a></p>
-			<p><a href="{% url 'photo_upload' %}">Upload Photo</a></p>
-			<p><a href="">Change Profile Photo</a></p>
-			<p><a href="{% url 'password_change' %}">Change Password</a></p>
-			<p><a href="{% url 'logout' %}">Log Out</a></p>
+		{% endif %}
+			<p><a href="{% url 'home' %}">Accueil</a></p>
+			<p><a href="{% url 'photo_upload' %}">Télécharger une photo</a></p>
+			<p><a href="{% url 'upload_profile_photo' %}">Changer la photo de profil</a></p>
+			<p><a href="{% url 'password_change' %}">Changer le mot de passe</a></p>
+			<p><a href="{% url 'logout' %}">Déconnection</a></p>
 		{% endif %}
 	</div>
 	<div class="main">
