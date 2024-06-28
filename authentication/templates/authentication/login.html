@@ -4,4 +4,8 @@
 	{{ form.as_table}} {% csrf_token %}
 	<button type="submit">Se Connecter</button>
 </form>
+<p>
+	Pas encore membre ?
+	<a href="{% url 'signup' %}">Inscrivez-vous maintenant !</a>
+</p>
 {% endblock content %}
